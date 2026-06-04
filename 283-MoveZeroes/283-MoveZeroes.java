@@ -1,14 +1,18 @@
-// Last updated: 6/4/2026, 10:33:05 AM
-class Solution {
-    public void moveZeroes(int[] arr) {
-        int left=0;
-        for(int right=0;right<arr.length;right++){
-            if(arr[right]!=0){
-                int temp = arr[right];
-                arr[right] = arr[left];
-                arr[left] = temp;
-                left++;
-            }
-        }
-    }
-}
+// Last updated: 4/6/2026, 9:52:17 pm
+1class Solution {
+2    public void moveZeroes(int[] arr) {
+3
+4        int l = 0;
+5        
+6        for (int r = 0; r < arr.length; r++) {
+7
+8            if (arr[r] != 0) {
+9                int temp = arr[r];
+10                arr[r] = arr[l];
+11                arr[l] = temp;
+12                l++;
+13            }
+14
+15        }
+16    }
+17}

@@ -1,0 +1,14 @@
+// Last updated: 6/4/2026, 10:34:15 AM
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        
+        int ans = nums[0];
+
+        for(int i = 1 ; i < nums.size() ; i++){
+            ans = ans ^ nums[i];
+        }
+
+        return ans;
+    }
+};

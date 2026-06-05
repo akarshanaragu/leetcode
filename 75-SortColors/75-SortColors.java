@@ -1,24 +1,25 @@
-// Last updated: 6/4/2026, 10:34:55 AM
-class Solution {
-    public void sortColors(int[] arr) {
-        int n = arr.length;
-        int l=0,mid=0,h=n-1;
-        while(mid<=h){
-            if(arr[mid]==2){
-                int temp=arr[mid];
-                arr[mid]=arr[h];
-                arr[h]=temp;
-                h--;
-            }
-            else if(arr[mid]==0){
-                int t=arr[mid];
-                arr[mid]=arr[l];
-                arr[l]=t;
-                l++;mid++;
-            }
-            else{
-                mid++;
-            }
-        }
-    }
-}
+// Last updated: 5/6/2026, 9:40:07 pm
+1class Solution {
+2    public void sortColors(int[] arr) {
+3        int left = 0;
+4        int curr = 0;
+5        int right = arr.length - 1;
+6
+7        while (curr <= right) {
+8            if (arr[curr] == 0) {
+9                int swap = arr[left];
+10                arr[left] = arr[curr];
+11                arr[curr] = swap;
+12                left++;
+13                curr++;
+14            } else if (arr[curr] == 1) {
+15                curr++;
+16            } else {
+17                int swap = arr[curr];
+18                arr[curr] = arr[right];
+19                arr[right] = swap;
+20                right--;
+21            }
+22        }
+23    }
+24}

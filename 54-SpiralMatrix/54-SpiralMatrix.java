@@ -1,30 +1,36 @@
-// Last updated: 6/4/2026, 10:35:10 AM
-class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
-        int left =0,top=0;
-        int right=matrix[0].length-1,bottom=matrix.length-1;
-        ArrayList<Integer> res = new ArrayList<>();
-        while(top<=bottom&&left<=right){
-            for(int i=left;i<=right;i++){
-                res.add(matrix[top][i]);
-            }
-            top++;
-            for(int i=top;i<=bottom;i++){
-                res.add(matrix[i][right]);
-            }
-            right--;
-            if(top<=bottom){
-            for(int i=right;i>=left;i--){
-                res.add(matrix[bottom][i]);
-            }
-            bottom--;}
-            if(left<=right){
-                for(int i=bottom;i>=top;i--){
-                    res.add(matrix[i][left]);
-                }
-                left++;
-            }
-        }
-        return res;
-    }
-}
+// Last updated: 6/6/2026, 10:42:27 pm
+1class Solution {
+2    public List<Integer> spiralOrder(int[][] a) {
+3        int l = 0, t = 0;
+4        int r = a[0].length - 1;
+5        int b = a.length - 1;
+6        ArrayList<Integer> res = new ArrayList<>();
+7        while (t <= b && l <= r) {
+8
+9            for (int i = l; i <= r; i++) {
+10                res.add(a[t][i]);
+11            }
+12            t++;
+13
+14            for (int i = t; i <= b; i++) {
+15                res.add(a[i][r]);
+16            }
+17            r--;
+18
+19            if (t <= b) {
+20                for (int i = r; i >= l; i--) {
+21                    res.add(a[b][i]);
+22                }
+23                b--;
+24            }
+25
+26            if (l <= r) {
+27                for (int i = b; i >= t; i--) {
+28                    res.add(a[i][l]);
+29                }
+30                l++;
+31            }
+32        }
+33        return res;
+34    }
+35}

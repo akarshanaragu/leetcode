@@ -1,28 +1,23 @@
-// Last updated: 10/6/2026, 11:35:15 pm
+// Last updated: 10/6/2026, 11:52:16 pm
 1class Solution {
-2    public int[] sortedSquares(int[] arr) {
-3        int len = arr.length;
-4        int[] ans = new int[len];
+2    public int peakIndexInMountainArray(int[] arr) {
+3        int s = 0;
+4        int e = arr.length - 1;
 5
-6        int s = 0;
-7        int e = len - 1;
-8        int idx = len - 1;
-9
-10        while (s <= e) {
-11            int leftSq = arr[s] * arr[s];
-12            int rightSq = arr[e] * arr[e];
-13
-14            if (leftSq > rightSq) {
-15                ans[idx] = leftSq;
-16                s++;
-17            } else {
-18                ans[idx] = rightSq;
-19                e--;
-20            }
-21
-22            idx--;
-23        }
-24
-25        return ans;
-26    }
-27}
+6        while (s <= e) {
+7            int m = (s + e) / 2;
+8
+9            if (arr[m] > arr[m + 1] && arr[m] > arr[m - 1]) {
+10                return m;
+11            } 
+12            else if (arr[m] < arr[m + 1]) {
+13                s = m + 1;
+14            } 
+15            else {
+16                e = m - 1;
+17            }
+18        }
+19
+20        return 0;
+21    }
+22}

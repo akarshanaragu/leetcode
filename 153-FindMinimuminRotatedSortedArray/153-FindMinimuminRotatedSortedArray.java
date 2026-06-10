@@ -1,42 +1,28 @@
-// Last updated: 10/6/2026, 10:36:33 pm
+// Last updated: 10/6/2026, 11:35:15 pm
 1class Solution {
-2    public int[] searchRange(int[] arr, int key) {
-3
-4        int[] ans = {-1, -1};
+2    public int[] sortedSquares(int[] arr) {
+3        int len = arr.length;
+4        int[] ans = new int[len];
 5
-6        int first = findPos(arr, key, true);
-7        int last = findPos(arr, key, false);
-8
-9        ans[0] = first;
-10        ans[1] = last;
-11
-12        return ans;
-13    }
-14
-15    private int findPos(int[] arr, int key, boolean findFirst) {
-16        
-17        int s = 0;
-18        int e = arr.length - 1;
-19        int pos = -1;
-20
-21        while (s <= e) {
-22            int m = s + (e - s) / 2;
-23
-24            if (arr[m] > key) {
-25                e = m - 1;
-26            } else if (arr[m] < key) {
-27                s = m + 1;
-28            } else {
-29                pos = m;
-30
-31                if (findFirst) {
-32                    e = m - 1;
-33                } else {
-34                    s = m + 1;
-35                }
-36            }
-37        }
-38
-39        return pos;
-40    }
-41}
+6        int s = 0;
+7        int e = len - 1;
+8        int idx = len - 1;
+9
+10        while (s <= e) {
+11            int leftSq = arr[s] * arr[s];
+12            int rightSq = arr[e] * arr[e];
+13
+14            if (leftSq > rightSq) {
+15                ans[idx] = leftSq;
+16                s++;
+17            } else {
+18                ans[idx] = rightSq;
+19                e--;
+20            }
+21
+22            idx--;
+23        }
+24
+25        return ans;
+26    }
+27}

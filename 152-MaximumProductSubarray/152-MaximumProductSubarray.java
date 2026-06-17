@@ -1,15 +1,19 @@
-// Last updated: 6/4/2026, 10:34:06 AM
-class Solution {
-    public int maxProduct(int[] nums) {
-        int max =nums[0],min=nums[0],ans=nums[0];
-        for(int i=1;i<nums.length;i++){
-            int x = nums[i];
-            int tmax=Math.max(x,Math.max(x*max,x*min));
-            int tmin=Math.min(x,Math.min(x*min,x*max));
-            max=tmax;
-            min=tmin;
-            ans = Math.max(max,ans);
-        }
-        return ans;
-    }
-}
+// Last updated: 17/6/2026, 11:47:41 pm
+1class Solution {
+2    public int maxProduct(int[] arr) {
+3
+4        int max = arr[0], min = arr[0], ans = arr[0];
+5
+6        for (int i = 1; i < arr.length; i++) {
+7            int a = arr[i];
+8
+9            int max1 = Math.max(a, Math.max(max * a, min * a));
+10            int min1 = Math.min(a, Math.min(max * a, min * a));
+11
+12            max = max1;min = min1;
+13            ans = Math.max(ans, max);
+14        }
+15
+16        return ans;
+17    }
+18}
